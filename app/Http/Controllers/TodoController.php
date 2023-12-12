@@ -51,17 +51,27 @@ public function index()
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        $todo = Todo::find($id);
+    
+        return view('todo.edit', compact('todo'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        $todo = Todo::find($id);
+    
+        $todo->title = $request->input('title');
+        $todo->save();
+    
+        return redirect('todos')->with(
+            'status',
+            $todo->title . 'を更新しました!'
+        );
     }
 
     /**

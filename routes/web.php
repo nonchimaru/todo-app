@@ -31,5 +31,5 @@ Route::get('/todos/create', [todoController::class, 'create']);
 Route::post('/todos', [todoController::class, 'store']);
 Route::get('/todos/{id}', [todoController::class, 'show']);
 Route::get('/todos/{id}/edit', [todoController::class, 'edit']);
-Route::put('/todos/{id}', [todoController::class, 'updeat']);
+Route::put('/todos/{id}', [todoController::class, 'update']);
 Route::delete('/todos/{id}', [todoController::class, 'destroy']);
