@@ -41,10 +41,12 @@ public function index()
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {
-        //
-    }
+    public function show($id)
+{
+    $todo = Todo::find($id);
+
+    return view('todo.show', compact('todo'));
+}
 
     /**
      * Show the form for editing the specified resource.
