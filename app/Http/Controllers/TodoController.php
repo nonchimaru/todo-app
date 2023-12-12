@@ -28,10 +28,16 @@ public function index()
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        //
-    }
+{
+    $todo = new Todo();
+    $todo->title = $request->input('title');
+    $todo->save();
 
+    return redirect('todos')->with(
+        'status',
+        $todo->title . 'を登録しました!'
+    );
+}
     /**
      * Display the specified resource.
      */
