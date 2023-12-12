@@ -77,8 +77,14 @@ public function index()
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
-    {
-        //
-    }
+    public function destroy($id)
+{
+    $todo = Todo::find($id);
+    $todo->delete();
+
+    return redirect('todos')->with(
+        'status',
+        $todo->title . 'を削除しました!'
+    );
+}
 }
